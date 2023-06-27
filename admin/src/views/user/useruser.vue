@@ -108,6 +108,7 @@
             <el-button @click="dialogstudent = false">取消</el-button>
           </div>
         </el-dialog>
+
 <!--        用户封禁解封弹窗-->
         <el-dialog title="封禁时间(天)" :visible.sync="activationttime.dialog" width="500px">
           <el-form :model="activationttime">
@@ -120,6 +121,7 @@
             <el-button type="primary" @click="changeactivationdate">确 定</el-button>
           </div>
         </el-dialog>
+
         <!--分页-->
         <el-pagination
           @size-change="handleSizeChange"
@@ -190,14 +192,12 @@ export default {
       },
       changepassword: {}, //修改密码弹窗数据
       changerealstateuser: {}, //正在审核的用户信息
-      changecompanystateuser: {}, //公司认证信息
       dialogstudent: false,
       dialogcompany: false,
       dialogpw: false, //密码框
       loading: false,
       pagelistquery: {
         realstate: "",
-        companystate: "",
         total: 0,
         page: 1,
         pagesize: 10,
@@ -260,12 +260,11 @@ export default {
       }
     },
     //用户认证处理
-    async changestate(type, state, userid, companyname) {
+    async changestate(type, state, userid) {
       let data = {
         type: type,
         state: state,
         user_id: userid,
-        company_name: companyname
       };
       let res = await this.$API.reqChangeState(this.qs.stringify(data));
       if (res.data.state.type === "SUCCESS") {
@@ -283,11 +282,20 @@ export default {
     //修改密码
     async change() {
       this.changepassword.type = "adminuser";
-      let res = await this.$API.reqChangePassword(this.qs.stringify(this.changepassword));
-      if (res.data.state.type === "SUCCESS") {
-        this.$message.success("修改成功");
-        this.dialogpw = false;
+      console.log(this.changepassword.newpassword);
+      if(this.changepassword.newpassword==''||this.changepassword.newpassword==undefined){
+          this.$message.error("不能为空！");
       }
+      else{
+          let res = await this.$API.reqChangePassword(this.qs.stringify(this.changepassword));
+          if (res.data.state.type === "SUCCESS") {
+            this.$message.success('修改成功');
+            this.changepassword.newpassword=''
+              this.dialogpw = false;
+             
+          }
+      }
+     
     },
     //删除用户
     async deleteuser(row) {

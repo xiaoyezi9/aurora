@@ -2,7 +2,7 @@
   <div>
     <el-card class="chatBox" :body-style="{ padding: '0px' }">
       <div class="loginChat" v-if="!isEnter">
-        <img :src="avatar" alt="" />
+        <img v-img-lazy="avatar" :src="avatar" alt="" />
         <span>{{ username }}</span>
         <button @click="loginChat">进入聊天室</button>
       </div>
@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       username: "您还未登录",
-      avatar: "http://localhost:8000/uplodes/avatar.jpg",
+      avatar: "http://81.68.220.8:8000/uplodes/avatar.jpg",
       uid: null,
       isEnter: false,
       socket: null,
@@ -49,7 +49,7 @@ export default {
      * 聊天室的主要功能
      */
     // 连接服务器
-    this.socket = io('http://localhost:8000');
+    this.socket = io('http://81.68.220.8:8000');
     // 监听登录失败的请求
     this.socket.on("loginfail", (data) => this.$message.error(data.msg));
     // 监听登录成功的请求
@@ -96,10 +96,11 @@ export default {
   destroyed() {
     if (this.socket) this.socket.disconnect();
   },
+
   methods: {
     ...mapActions('chat',['setJoinRoom','setLeaveRoom','setAvatar']),
     loginChat() {
-if(this.username=='您还未登录'){
+   if(this.username=='您还未登录'){
   this.$message.warning("请您登录");
 
 }else{
@@ -109,13 +110,12 @@ if(this.username=='您还未登录'){
     avatar: this.avatar,
   });
 }
-
-
-    },
+   },
 
     activeSid(sid) {
       this.sid = sid;
     },
+
     sendServer(content, isGroup) {
       const { username, avatar, sid } = this.user;
       if (isGroup) {

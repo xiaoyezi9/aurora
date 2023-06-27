@@ -1,3 +1,11 @@
+/*
+ * @Author: 爱吃香菜的猹
+ * @Date: 2023-05-22 20:01:28
+ * @LastEditors: 爱吃香菜的猹
+ * @LastEditTime: 2023-06-14 17:08:08
+ * @FilePath: \aurora-beta\web\src\main.js
+ * @Description: 
+ */
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -16,6 +24,7 @@ import * as API from './api'
 //ecahrs
 import ECharts from 'vue-echarts'
 import 'echarts/lib/chart/bar'
+import  lazyPlugin  from './directives'
 
 Vue.component('chart', ECharts)
 //vuex
@@ -30,10 +39,13 @@ Vue.directive('title', {//单个修改标题
     document.title = el.dataset.title
   }
 })
+
 //定义全局时间过滤器
 Vue.filter('dataFormat', function (datastr, pattern = "YYYY-MM-DD HH:mm") {
   return moment(datastr).format(pattern)
 })
+//加载懒加载插件
+Vue.use(lazyPlugin)
 Vue.config.productionTip = false
 
 

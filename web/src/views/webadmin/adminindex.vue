@@ -34,7 +34,11 @@
 <!--              通知管理-->
               <span slot="title">通知中心</span>
             </el-menu-item>
-
+<!--            <el-menu-item index="/admin/PersonalMessage">-->
+<!--              <i class="el-icon-bell"></i>-->
+<!--              &lt;!&ndash;              通知管理&ndash;&gt;-->
+<!--              <span slot="title">私信</span>-->
+<!--            </el-menu-item>-->
           </el-menu>
         </el-aside>
 

@@ -180,6 +180,8 @@ export default {
       let res = await this.$API.reqChartData();
       if (res.data.state.type === "SUCCESS") {
         this.data = res.data.data;
+
+          console.log('图表',this.data)
         this.data.user.forEach(element => {
           this.orgOptionsuser.series[0].data.push(element.num); //num 就是用户个数
           this.orgOptionsuser.xAxis.data.push(element.time);   //time就是各个用户创建时间
@@ -188,29 +190,31 @@ export default {
           this.orgOptionscomment.series[0].data.push(element.num);
           this.orgOptionscomment.xAxis.data.push(element.time);
         });
-
         this.data.count.forEach(element => {
-          if (element.table_name == "help") {
-            this.count.push({ name: "交流/问答", value: element.table_rows });
-            this.contentcount = this.contentcount + element.table_rows;
+            console.log(element)
+          if (element.TABLE_NAME == "help") {
+            this.count.push({ name: "交流/问答", value: element.TABLE_ROWS });
+              console.log(111)
+            this.contentcount = this.contentcount + element.TABLE_ROWS;
           }
-          if (element.table_name == "activity") {
-            this.count.push({ name: "活动", value: element.table_rows });
-            this.contentcount = this.contentcount + element.table_rows;
+          if (element.TABLE_NAME == "activity") {
+            this.count.push({ name: "活动", value: element.TABLE_ROWS });
+            this.contentcount = this.contentcount + element.TABLE_ROWS;
           }
-          if (element.table_name == "article") {
-            this.count.push({ name: "文章新闻", value: element.table_rows });
-            this.contentcount = this.contentcount + element.table_rows;
+          if (element.TABLE_NAME == "article") {
+            this.count.push({ name: "文章新闻", value: element.TABLE_ROWS});
+            this.contentcount = this.contentcount + element.TABLE_ROWS;
           }
-          if (element.table_name == "comment") {
-            this.commentcount = this.commentcount + element.table_rows;
+          if (element.TABLE_NAME== "comment") {
+            this.commentcount = this.commentcount + element.TABLE_ROWS;
           }
-          if (element.table_name == "reply") {
-            this.commentcount = this.commentcount + element.table_rows;
+          if (element.TABLE_NAME == "reply") {
+            this.commentcount = this.commentcount + element.TABLE_ROWS;
           }
-          if (element.table_name == "user") {
-            this.usercount = this.usercount + element.table_rows;
+          if (element.TABLE_NAME == "user") {
+            this.usercount = this.usercount + element.TABLE_ROWS;
           }
+
         });
 
         this.count.forEach(element => {

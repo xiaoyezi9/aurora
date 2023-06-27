@@ -2,12 +2,7 @@
   <div class="activity">
     <div class="row-fluid top-cats">
       <section class="widget">
-        <router-link
-          to="/activity"
-          tag="div"
-          class="page-header"
-          style="position:relative;cursor:pointer"
-        >
+        <router-link to="/activity" tag="div" class="page-header" style="position:relative;cursor:pointer">
           <h3>活动</h3>
           <h4 style="  position: absolute;right: 10px;top: 4px;">更多></h4>
         </router-link>
@@ -26,10 +21,7 @@
                 {{activity.createtime|dataFormat}}
 
                 <!--              活动地点-->
-                <a
-                  class="iconfont"
-                  style="margin-left:50px"
-                >&#xe609;</a>
+                <a class="iconfont" style="margin-left:50px">&#xe609;</a>
                 {{activity.activity_locale}}
               </span>
 <!--阅读人数-->

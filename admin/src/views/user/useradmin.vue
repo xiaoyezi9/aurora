@@ -245,7 +245,7 @@ export default {
             if (data.state.type == "ERROR_PARAMS_EXIST") {
               this.$message.error("账户名重复");
             } else {
-              this.$message.error("账号添加失败失败");
+              this.$message.error("账号添加失败");
             }
             return;
           }

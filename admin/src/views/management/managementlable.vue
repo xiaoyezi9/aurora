@@ -57,7 +57,7 @@ export default {
       this.lable[id].lable.splice(this.lable[id].lable.indexOf(tag), 1);
       this.change(id);
     },
-
+//控制输入框的显隐
     showInput(id) {
       // console.log(id);
       this.lable[id].inputshow = 1;
@@ -65,14 +65,14 @@ export default {
 
     handleInputConfirm(id) {
       let inputValue = this.inputValue;
-      if (inputValue) {
+      if (inputValue.trim()) {
         this.lable[id].lable.push(inputValue);
         this.change(id);
       }
       this.lable[id].inputshow = 0;
       this.inputValue = "";
     },
-
+//修改标签
     async change(id) {
       this.changelable = JSON.stringify(this.lable[id]);
       this.changelable = JSON.parse(this.changelable); //通过JSON.stringify和JSON.parse完成深拷贝

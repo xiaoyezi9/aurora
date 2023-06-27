@@ -6,13 +6,14 @@
 
       <article id="comment-4" v-if="userinfo">
         <img
+        v-img-lazy="avatar"
           :src="avatar"
           class="avatar touxiang avatar-60 photo"
           style=" width: 50px;height: 50px"
         />
         <h4 class="author" style=" display: inline;">{{nickname}}</h4>
       </article>
-
+<!--添加文章评论的地方-->
       <div v-if="editorid!==-1" @click="openEditor" class="commenttop">添加评论</div>
 <!--      富文本编辑器-->
       <vue-editor
@@ -22,10 +23,10 @@
         @image-added="handleImageAdded"
         v-model="comment_content"
       ></vue-editor>
-
       <div class="comment">
         <el-button type="info" v-if="editorid===-1" @click="setcomment">评论</el-button>
       </div>
+
 <!--      评论展示-->
       <ol class="commentlist">
         <li
@@ -180,6 +181,7 @@
                     <a href="#">
                       <img
                         alt
+                        v-img-lazy="data.avatar"
                         :src="data.avatar"
                         class="avatar touxiang avatar-60 photo"
                         height="40"
@@ -363,7 +365,7 @@ export default {
       if (res.data.state.type === "SUCCESS") {
         this.$message.success("评论成功");
         this.comment_content = "";
-        this.touserid != "";
+        this.touserid = "";
         this.getcomment();
         this.replyinputid = -1;
         this.replyid = -1;

@@ -20,6 +20,7 @@
                       <li class="comment even thread-odd thread-alt depth-1" id="li-comment-4">
                         <article id="comment-4">
                           <img
+                          v-img-lazy="content.avatar"
                             :src="content.avatar"
                             class="avatar touxiang avatar-60 photo"
                             height="60"
@@ -70,7 +71,7 @@
                     title="Comment on Integrating WordPress with Your Website"
                   >{{commentnum}} Comments</a>
                 </span>
-                <span class="like-count">66</span>
+                <span class="like-count"></span>
               </div>
               <!-- end of post meta -->
               <blockquote v-html="content.help_content"></blockquote>
@@ -78,7 +79,7 @@
 
             <div class="like-btn">
               <form id="like-it-form" action="#" method="post">
-                <span class="like-it">66</span>
+                <span class="like-it"></span>
                 <input type="hidden" name="post_id" value="99" />
                 <input type="hidden" name="action" value="like_it" />
               </form>
@@ -87,10 +88,15 @@
                 <strong>标签</strong>
                 <span
                   v-for="(tag,id) in content.help_tag"
-                  @click="$router.push(`/help/${tag}`) "
                   :key="id"
                   class="label"
                 >{{tag}}</span>
+<!--                   <span-->
+<!--                           v-for="(tag,id) in content.help_tag"-->
+<!--                           @click="$router.push(`/help/${tag}`) "-->
+<!--                           :key="id"-->
+<!--                           class="label"-->
+<!--                   >{{tag}}</span>-->
               </span>
             </div>
 
@@ -120,6 +126,7 @@ import help from "@/components/help.vue";
 import { mapState, mapActions } from "vuex";
 
 export default {
+    name:'helpcontent',
   components: {
     carousel,
     comment,
@@ -148,9 +155,10 @@ export default {
         query : { user: username, url: url }
       });
     },
+      //获取详情
     async gethelpcontent() {
       let data = {
-        id: this.id
+        id: this.id  //路由传递过来的
       };
       let res = await this.$API.reqHelpContent(
         this.qs.stringify(data)

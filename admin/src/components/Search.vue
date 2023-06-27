@@ -1,8 +1,6 @@
 <template>
   <el-form :inline="true" :model="queryInfo" class="demo-form-inline">
     <template v-for="(item,index) in queryData" >
-
-
       <el-form-item v-if="item.type == 'input'&&item.value=='user'" :label="item.label" :key="index">
         <el-input v-model="queryInfo[item.value]" :placeholder="item.placeholder"></el-input>
       </el-form-item>

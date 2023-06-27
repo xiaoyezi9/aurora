@@ -3,7 +3,7 @@
 
     <div class="chatList">
       <div class="avatar">
-        <img :src="user.avatar" alt="" />
+        <img v-img-lazy='user.avatar' :src="user.avatar" alt="" />
         <span>{{ user.username }}</span>
       </div>
       <el-divider></el-divider>
@@ -184,6 +184,9 @@ export default {
     sendContentToServe() {
       // 获取到聊天的内容
       this.content = this.$refs.textarea.value;
+      if(this.content.length>50){
+        return alert("消息过长，无法发送");
+      }
       this.$refs.textarea.value = "";
       if (!this.content) {
         return alert("请输入内容");

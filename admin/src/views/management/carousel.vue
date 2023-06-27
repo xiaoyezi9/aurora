@@ -21,7 +21,7 @@
         <el-form ref="form" :model="carousel" style="margin-top:40px;width:80%" label-width="80px">
           <el-form-item label="图片">
             <el-upload
-              :action="'http://localhost:8000/upload'"
+              :action="'http://81.68.220.8:8000/upload'"
               :headers="{ Authorization: 'Bearer ' + token }"
               :show-file-list="false"
               :on-success="(value)=> uplogsuccess(value, id)"

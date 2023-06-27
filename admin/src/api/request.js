@@ -1,3 +1,11 @@
+/*
+ * @Author: 爱吃香菜的猹
+ * @Date: 2023-05-22 19:59:31
+ * @LastEditors: 爱吃香菜的猹
+ * @LastEditTime: 2023-06-26 21:10:48
+ * @FilePath: \aurora-beta\admin\src\api\request.js
+ * @Description: 
+ */
 import axios from "axios";
 //引入进度条
 import nProgress from "nprogress";
@@ -6,7 +14,7 @@ import "nprogress/nprogress.css";
 import ElementUI from "element-ui";
 import router from "@/router";
 const request=axios.create({
-    baseURL:'http://localhost:8000',
+    baseURL:'http://81.68.220.8:8000',
     timeout:5000,
     defaults: {
         headers: {

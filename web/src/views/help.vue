@@ -26,9 +26,9 @@
                 <a>{{lable}}</a>
               </li>
 
-               <li v-if="pagelistquery.tag!=''"  class="active" @click="changelable('')">
-                <a>{{this.pagelistquery.tag}}</a>
-              </li>
+<!--               <li v-if="pagelistquery.tag!=''"  class="active" @click="changelable('')">-->
+<!--                <a>{{this.pagelistquery.tag}}</a>-->
+<!--              </li>-->
 
             </ul>
             <section class="widget">

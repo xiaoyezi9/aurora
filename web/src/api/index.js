@@ -1,4 +1,10 @@
 import request from "./request";
+export const reqCode=()=>{
+    return  request({
+        url:'/webadmin/sms',
+        method:'post'
+    })
+}
 //登录
 export const reqRegister=(data) => {
     return  request({
@@ -343,7 +349,7 @@ export const reqAnnouncementList=(data) => {
         data
     })
 }
-console.log(11)
+
 //发布活动公告
 export const reqSetAnnouncement=(data) => {
     return  request({
@@ -399,4 +405,11 @@ export const reqJubaoContent=(data) => {
         data
     })
 }
-
+//添加好友
+export const reqaddFriend=(data) => {
+    return  request({
+        url:'/web/addfriends',
+        method:'post',
+        data
+    })
+}

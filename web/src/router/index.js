@@ -29,6 +29,7 @@ import fankui from "../views/kefu/fankui.vue"
 import jubao from "../views/kefu/jubao.vue"
 import shensu from "../views/kefu/shensu.vue"
 import Router from 'vue-router'
+import PersonMessage from "@/views/webadmin/PersonMessage.vue";
 
 Vue.use(VueRouter)
 
@@ -62,6 +63,8 @@ const routes = [
           { path: 'myself', name: 'myself', component: myself },
           { path: 'createhelp', name: 'createhelp', component: createhelp },
           { path: 'notice', name: 'notice', component: notice },
+          { path: 'personmessage', name: 'personmessage', component: PersonMessage },
+
           { path: 'updatehelp/:id', name: 'createhelp', component: createhelp ,props:true},
           { path: 'createhelplist', name: 'createhelplist', component: createhelplist },
           { path: 'updateactivity/:id', name: 'updateactivity', component: createactivity ,props:true},
@@ -81,6 +84,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to,Form,next)=>{
+  //表示当路由跳转到的目标页面没有设置 meta 属性中的 ispublic 字段，即该页面需要用户登录才能访问时，
   if(!to.meta.ispublic&&!localStorage.web_jwt_token){
     return next('/home')
   }

@@ -9,6 +9,7 @@
         <div class="search">
           <Search :queryData="queryData" :queryInfo="queryInfo" @getQuery="getQuery"/>
         </div>
+
         <!-- 弹出框-->
         <el-dialog title="详情" :visible.sync="dialog">
 

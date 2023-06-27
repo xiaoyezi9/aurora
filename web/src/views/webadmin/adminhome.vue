@@ -3,7 +3,10 @@
     <div class="left">
       <li class="comment even thread-odd thread-alt depth-1" id="li-comment-4">
         <article id="comment-4">
-          <img :src="form.avatar" class="avatar touxiang avatar-60 photo" height="60" width="60" />
+          <img 
+          v-img-lazy='form.avatar' 
+          :src="form.avatar" 
+          class="avatar touxiang avatar-60 photo" height="60" width="60" />
 
           <div class="comment-meta">
             <h5 class="author">{{form.nickname}}</h5>
@@ -90,7 +93,7 @@ export default {
     async getusernumbering() {
       let res = await this.$API.reqUserNumbering();
       this.optioncontentshadow.series[0].data.push(res.data.data.help,res.data.data.activity,res.data.data.article,res.data.data.job,res.data.data.oldstuff)
-      this.optioncontentshadow.xAxis[0].data = ['问答交流','校内活动','文章新闻'];
+      this.optioncontentshadow.xAxis[0].data = ['问答交流','活动','文章新闻'];
       console.log(res.data.data);
     }
   },

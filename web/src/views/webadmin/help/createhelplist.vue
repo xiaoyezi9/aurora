@@ -91,6 +91,7 @@ export default {
       this.gethelplist();
       console.log(`当前页: ${val}`);
     },
+
     //获取求助列表
     async gethelplist() {
       let data = {

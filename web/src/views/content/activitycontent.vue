@@ -54,6 +54,7 @@
                       type="danger"
                       plain
                     >举报</el-button>
+
                   </span>
 
                   <div slot="reference" class="show_unit fl ativity">
@@ -107,14 +108,6 @@
               </el-timeline>
             </div>
 
-<!--            <div class="like-btn">-->
-<!--              <form id="like-it-form" action="#" method="post">-->
-<!--                <span class="like-it">0</span>-->
-<!--                <input type="hidden" name="post_id" value="99" />-->
-<!--                <input type="hidden" name="action" value="like_it" />-->
-<!--              </form>-->
-<!--            </div>-->
-
             <comment />
           </div>
           <aside class="span4 page-sidebar">
@@ -135,7 +128,7 @@ import carousel from "@/components/carousel.vue";
 import comment from "@/components/comment.vue";
 import activity from "@/components/activity.vue";
 import { mapState, mapActions } from "vuex";
-import {reqActivityContent} from "@/api";
+import {reqActivityContent, reqaddFriend} from "@/api";
 
 export default {
   name:'activitycontent',
@@ -147,7 +140,8 @@ export default {
   computed: {
     ...mapState({
       contentuserid: state => state.contentuserid,
-      commentnum: state => state.commentnum
+      commentnum: state => state.commentnum,
+      userinfo:state => state.user.userinfo
     })
   },
   data() {
@@ -180,6 +174,20 @@ export default {
         query : { user: username, url: url }
       });
     },
+    // async addFriend(content){
+    //   let data={
+    //     nickname:this.userinfo.nickname,
+    //     userid:this.userinfo.uid,
+    //     friendid:content.user_id
+    //
+    //   }
+    //   let res =await this.$API.reqaddFriend( this.qs.stringify(data))
+    //   if (res.data.state.type === "SUCCESS") {
+    //     this.$message.success('添加好友请求已发送')
+    //     console.log(res.data)
+    //   }
+    //
+    // },
     //获取单个活动内容
     async getactivitycontent() {
       let data = {

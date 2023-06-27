@@ -4,12 +4,12 @@
     <div v-title data-title="新闻"></div>
 
     <!-- Start of Page Container -->
-    <div class="page-container">
-      <div class="container">
+    <div class="page-container" style="overflow:auto" >
+      <div class="container"  >
         <div class="row">
           <!-- start of page content -->
           <div class="span8 page-content">
-            <div class="page-header">
+            <div class="page-header" >
               <h3>
                 文章/新闻
               </h3>
@@ -36,7 +36,7 @@
               </li>
             </ul>
 
-            <article
+            <article  
               class="format-standard type-post hentry clearfix"
               v-for="(item,id) in tableData"
               :key="id"
@@ -140,7 +140,8 @@ export default {
       if (res.data.state.type === "SUCCESS") {
         this.lables = JSON.parse(res.data.data[0].lable);
       }
-    }
+    },
+    
   },
   created() {
     this.tag && this.changetag();

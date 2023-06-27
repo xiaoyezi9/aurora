@@ -7,7 +7,7 @@
         <el-form ref="form" :model="form" label-width="150px" size="medium ">
           <el-form-item label="头像">
             <el-upload
-                :action="'http://localhost:8000/upload'"
+                :action="'http://81.68.220.8:8000/upload'"
                 :headers="{ Authorization: 'Bearer ' + token }"
               :show-file-list="false"
               :on-success="uplogsuccess"
@@ -60,7 +60,7 @@
           </el-form-item>
           <el-form-item label="学生证">
             <el-upload
-                :action="'http://localhost:8000/upload'"
+                :action="'http://81.68.220.8:8000/upload'"
                 :headers="{ Authorization: 'Bearer ' + token }"
               list-type="picture-card"
               :on-success="studentuploadsuccess"
@@ -177,7 +177,7 @@ export default {
         };
         if (this.form.studentcard == null) this.student.studentcard = [];
 
-        this.form.m = "user",
+        this.form.m = "user"
             console.log(this.student);
       }
     },

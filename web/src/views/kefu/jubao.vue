@@ -96,14 +96,14 @@ export default {
       }
     },
     seturl(){
-      this.form.jubao_url=encodeURIComponent(this.$route.query.url)
+        console.log(encodeURIComponent(this.$route.query.url))
+        this.form.jubao_url=encodeURIComponent(this.$route.query.url)
       this.form.jubao_user=this.$route.query.user
-      console.log(123)
     }
 
   },
   created(){
-    this.$route.query&&this.seturl()
+    this.$route.query.url&&this.seturl()
   }
 };
 </script>

@@ -12,7 +12,7 @@ const getters = {
 const mutations = {
     SET_USERINFO(state, userinfo) {
         console.log(userinfo)
-        state.userinfo = userinfo,
+        state.userinfo = userinfo
             localStorage.setItem('userinfo', JSON.stringify(userinfo))
     },
     CHANGE_ISLOG(state) {

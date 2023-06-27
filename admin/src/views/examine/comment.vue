@@ -49,12 +49,12 @@
 
                 <el-table-column fixed="right" label="操作" width="250">
                   <template slot-scope="scope">
-                    <el-button
-                      type="text"
-                      size="small"
-                      v-if="scope.row.ispublic==1"
-                      @click="changestate('reply',-1,scope.row.reply_id)"
-                    >不通过审核</el-button>
+<!--                    <el-button-->
+<!--                      type="text"-->
+<!--                      size="small"-->
+<!--                      v-if="scope.row.ispublic==1"-->
+<!--                      @click="changestate('reply',-1,scope.row.reply_id)"-->
+<!--                    >不通过审核</el-button>-->
                     <el-button
                       type="text"
                       size="small"
@@ -67,12 +67,12 @@
                       v-if="scope.row.ispublic==0"
                       @click="changestate('reply',-1,scope.row.reply_id)"
                     >不通过审核</el-button>
-                    <el-button
-                      type="text"
-                      size="small"
-                      v-if="scope.row.ispublic==-1"
-                      @click="changestate('reply',1,scope.row.reply_id)"
-                    >通过审核</el-button>
+<!--                    <el-button-->
+<!--                      type="text"-->
+<!--                      size="small"-->
+<!--                      v-if="scope.row.ispublic==-1"-->
+<!--                      @click="changestate('reply',1,scope.row.reply_id)"-->
+<!--                    >通过审核</el-button>-->
                     <el-button
                       type="text"
                       size="small"
@@ -107,12 +107,12 @@
           <el-table-column label="审核人" prop="admin"></el-table-column>
           <el-table-column fixed="right" label="操作" width="250">
             <template slot-scope="scope">
-              <el-button
-                type="text"
-                size="small"
-                v-if="scope.row.ispublic==1"
-                @click="changestate('comment',-1,scope.row.comment_id)"
-              >不通过审核</el-button>
+<!--              <el-button-->
+<!--                type="text"-->
+<!--                size="small"-->
+<!--                v-if="scope.row.ispublic==1"-->
+<!--                @click="changestate('comment',-1,scope.row.comment_id)"-->
+<!--              >不通过审核</el-button>-->
               <el-button
                 type="text"
                 size="small"
@@ -125,12 +125,12 @@
                 v-if="scope.row.ispublic==0"
                 @click="changestate('comment',-1,scope.row.comment_id)"
               >不通过审核</el-button>
-              <el-button
-                type="text"
-                size="small"
-                v-if="scope.row.ispublic==-1"
-                @click="changestate('comment',1,scope.row.comment_id)"
-              >通过审核</el-button>
+<!--              <el-button-->
+<!--                type="text"-->
+<!--                size="small"-->
+<!--                v-if="scope.row.ispublic==-1"-->
+<!--                @click="changestate('comment',1,scope.row.comment_id)"-->
+<!--              >通过审核</el-button>-->
               <el-button
                 type="text"
                 size="small"
